@@ -53,3 +53,9 @@ npm run dev
 - सब्ज़ी मंडी की आवाज़ें (vendor calls, bhāv announcements)
 - सीखने के छोटे-छोटे *चैलेंज* (जैसे "सिर्फ़ आलू में 5 क्रेट बेचो")
 - टाइम-ट्रैवल मोड जहाँ खबर (news) आती है: बारिश → टमाटर महँगा
+
+## ⏰ Gold Candle Timers (desktop widget)
+
+`timer-app/` me ek chhota **Electron** widget hai — **1M / 5M / 1H** candle-close countdown,
+**hamesha window ke upar**, broker/gold chart time se **ek baar sync** karo phir drift-free.
+Windows `.exe` banane ke liye [`timer-app/BUILD_WINDOWS.md`](timer-app/BUILD_WINDOWS.md) dekho.

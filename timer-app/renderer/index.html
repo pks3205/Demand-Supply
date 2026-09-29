@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Gold Candle Timers</title>
+  <link rel="stylesheet" href="app.css" />
+</head>
+<body>
+  <div id="wrap">
+    <div id="strip" class="strip" title="Gold Candle Timers">
+      <button id="pin" class="pin" title="Always on top (on/off)">
+        <svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true">
+          <path fill="currentColor" d="M16 3l5 5-5.6 1.4L13 12l.7 4.2L12 18l-4-4-5 5-1-1 5-5-4-4 1.8-1.7L9 8l2.6-2.4L13 3z" transform="rotate(8 12 12)"/>
+        </svg>
+      </button>
+
+      <div class="ring" id="ring-1M">
+        <svg viewBox="0 0 64 64">
+          <circle class="bgc" cx="32" cy="32" r="28"></circle>
+          <circle class="fgc" cx="32" cy="32" r="28"></circle>
+        </svg>
+        <div class="inner"><div class="lbl">1M</div><div class="dig">–:––</div></div>
+      </div>
+      <div class="ring" id="ring-5M">
+        <svg viewBox="0 0 64 64">
+          <circle class="bgc" cx="32" cy="32" r="28"></circle>
+          <circle class="fgc" cx="32" cy="32" r="28"></circle>
+        </svg>
+        <div class="inner"><div class="lbl">5M</div><div class="dig">–:––</div></div>
+      </div>
+      <div class="ring" id="ring-1H">
+        <svg viewBox="0 0 64 64">
+          <circle class="bgc" cx="32" cy="32" r="28"></circle>
+          <circle class="fgc" cx="32" cy="32" r="28"></circle>
+        </svg>
+        <div class="inner"><div class="lbl">1H</div><div class="dig">––:––</div></div>
+      </div>
+
+      <button id="gear" class="gear" title="Sync settings">
+        <svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true">
+          <path fill="currentColor" d="M12 8a4 4 0 100 8 4 4 0 000-8zm9 4a7.7 7.7 0 00-.1-1.2l2-1.6-2-3.4-2.4 1a8 8 0 00-2-1.2L16 3H8l-.5 2.6a8 8 0 00-2 1.2l-2.4-1-2 3.4 2 1.6A7.7 7.7 0 003 12c0 .4 0 .8.1 1.2l-2 1.6 2 3.4 2.4-1a8 8 0 002 1.2L8 21h8l.5-2.6a8 8 0 002-1.2l2.4 1 2-3.4-2-1.6c.1-.4.1-.8.1-1.2z"/>
+        </svg>
+      </button>
+    </div>
+
+    <div id="settings" class="settings" hidden>
+      <div class="srow clocks">
+        <span>Local&nbsp;<b id="clkLocal">--:--:--</b></span>
+        <span>Gold/Server&nbsp;<b id="clkServer">--:--:--</b></span>
+      </div>
+      <div class="srow">
+        <input id="brokerTime" type="text" placeholder="Broker chart time  HH:MM:SS" autocomplete="off" />
+        <button id="syncBtn" class="goldbtn">Sync</button>
+      </div>
+      <div class="srow">
+        <span class="offlbl">Offset&nbsp;<b id="offVal">0</b>&nbsp;min</span>
+        <span class="stepbtns">
+          <button data-d="-1800">−30m</button>
+          <button data-d="-60">−1m</button>
+          <button data-d="60">+1m</button>
+          <button data-d="1800">+30m</button>
+        </span>
+      </div>
+      <div class="srow">
+        <label class="chk"><input id="beep" type="checkbox" /> candle close par beep</label>
+        <span class="spacer"></span>
+        <button id="resetBtn" class="plainbtn">Reset</button>
+        <button id="closeBtn" class="plainbtn">✕</button>
+      </div>
+      <div class="hint">Chart ke clock se ek baar sync karo — phir timers hamesha candle close se matched rahenge (real clock, no drift).</div>
+    </div>
+  </div>
+
+  <script src="timer-logic.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

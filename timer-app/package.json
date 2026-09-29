@@ -1,0 +1,35 @@
+{
+  "name": "gold-candle-timers",
+  "version": "1.0.0",
+  "description": "1M / 5M / 1H candle-close countdown widget — always on top, synced to broker (gold chart) time",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "node --test test/timer-logic.test.js test/main.smoke.js",
+    "dist": "electron-builder --win"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "com.arena.goldcandletimers",
+    "productName": "Gold Candle Timers",
+    "files": [
+      "main.js",
+      "preload.js",
+      "renderer/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": false
+    }
+  }
+}
