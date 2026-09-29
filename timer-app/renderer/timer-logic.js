@@ -34,10 +34,13 @@
     return r <= 0 ? iv : r;
   }
 
-  // Whole seconds shown on the dial: 59:59 style (full interval shows
-  // interval-1, last second before close shows 0:00).
+  // Whole seconds shown on the dial: the true number of seconds left
+  // until the candle closes (rounded up), so the dial always agrees with
+  // the chart clock: at chart-time HH:MM:59 a 1M candle shows 0:01, and
+  // the ring resets + flashes exactly at HH:MM:00.  At the boundary the
+  // full interval is shown (1:00 / 5:00 / 60:00 for one second).
   function secondsLeft(remainingMillis) {
-    return Math.max(0, Math.ceil(remainingMillis / 1000) - 1);
+    return Math.max(0, Math.ceil(remainingMillis / 1000));
   }
 
   // m:ss with unpadded minutes, padded seconds ("0:47", "31:55").
